@@ -1,0 +1,25 @@
+
+class Solution {
+
+    int[] arr;
+
+    public int climbStairs(int n) {
+        arr = new int[n + 1];
+        return solve(n);
+    }
+
+    public int solve(int n) {
+
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+
+        if (arr[n] != 0) {
+            return arr[n];
+        }
+
+        arr[n] = solve(n - 1) + solve(n - 2);
+
+        return arr[n];
+    }
+}
